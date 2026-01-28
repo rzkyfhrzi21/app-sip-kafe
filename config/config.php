@@ -16,10 +16,10 @@ if ($host === 'localhost' || strpos($host, '127.0.0.1') !== false) {
     $password   = '';
     $database   = 'app_sip_kafe';
 } else {
-    $server     = '';
-    $username   = '';
-    $password   = '';
-    $database   = '';
+    $server     = 'localhost';
+    $username   = 'aru1gb4i_sip_kafe';
+    $password   = '5nz5bgw8zt5zej5L6gX8';
+    $database   = 'aru1gb4i_sip_kafe';
 }
 
 $koneksi = mysqli_connect($server, $username, $password, $database);
