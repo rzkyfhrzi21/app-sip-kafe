@@ -1,0 +1,5 @@
+# Install Python versi 3.11.7 dan Install ini
+cd C:\xampp\htdocs\app-sip-kafe\ml
+C:\Python3117\python.exe -m pip install -r requirements.txt
+
+$python = "C:\\Python3117\\python.exe";
