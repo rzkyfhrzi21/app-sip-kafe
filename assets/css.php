@@ -218,6 +218,35 @@
         box-shadow: 0 4px 8px rgba(123, 75, 42, 0.3);
     }
 
+    /* Pastikan tombol terlihat seperti ikon tanpa background dan border */
+    .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Container input harus posisi relative untuk tombol posisi absolute */
+    .search-box {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Tambahkan padding-right agar teks tidak tertutup tombol */
+    .search-box input[type="text"] {
+        padding-right: 2.5rem;
+        /* ruang untuk tombol ikon */
+    }
+
     /* Responsive for smaller devices */
     @media (max-width: 767.98px) {
         .kafe-card img {
