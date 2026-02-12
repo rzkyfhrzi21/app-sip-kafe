@@ -1,6 +1,6 @@
 <?php
 // =====================================================
-// function_clustering.php (FIXED VERSION)
+// function_clustering.php (TANPA CRON JOB VERSION)
 // Controller proses clustering SIP Kafe
 // 
 // FIXED:
