@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once '../config/flash_message_handler.php';
+show_flash_message();
 
 require_once '../config/config.php';
 
@@ -280,6 +282,10 @@ $page = $_GET['page'] ?? 'dashboard';
 
                     case 'Profil':
                         include 'pages/profil.php';
+                        break;
+
+                    case 'tes':
+                        include 'pages/tes.php';
                         break;
                 }
                 ?>

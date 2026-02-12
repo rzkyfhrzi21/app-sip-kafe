@@ -15,7 +15,6 @@ SWEETALERT
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php require_once '../config/sweetalert.php'; ?>
 
-
 <!-- =========================
 FORM & INPUT
 ========================= -->
@@ -118,13 +117,13 @@ DATATABLE INIT
         const dt = $('#tabel').DataTable({
             paging: true,
             lengthChange: true,
-            pageLength: 25,
-            lengthMenu: [25, 50, 100, 250],
+            pageLength: 50,
+            lengthMenu: [50, 100, 250, 500],
             searching: true,
             searchDelay: 300,
             ordering: true,
             order: [
-                [0, 'desc']
+                [0, 'asc']
             ],
             info: true,
             autoWidth: false,

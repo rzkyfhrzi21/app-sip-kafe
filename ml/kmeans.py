@@ -1,13 +1,13 @@
 # =====================================================
-# kmeans.py
+# kmeans.py (FINAL FIX VERSION)
 # Mesin Machine Learning SIP Kafe
 # Python 3.11.7
 #
 # Fungsi utama:
 # - Membaca dataset kuisioner kafe (CSV)
-# - Melakukan preprocessing & agregasi data
-# - Menerapkan algoritma K-Means Clustering
-# - Menghasilkan output JSON untuk diproses PHP
+# - Preprocessing & agregasi
+# - K-Means Clustering
+# - Output JSON ke PHP
 # =====================================================
 
 import sys
@@ -17,46 +17,90 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
 
-# =====================================================
-# TAHAP 1: LOAD DATASET CSV
-# =====================================================
-# File CSV dikirim dari PHP sebagai argument pertama
-# Contoh pemanggilan:
-# python kmeans.py path/to/file.csv
-# =====================================================
-csv_path = sys.argv[1]
 
 # =====================================================
-# PENTING:
-# Dataset CSV menggunakan delimiter titik koma (;)
-# Oleh karena itu WAJIB mendefinisikan sep=';'
-# Jika tidak, pandas akan gagal memisahkan kolom
+# TAHAP 1: VALIDASI ARGUMENT
 # =====================================================
-df = pd.read_csv(csv_path, sep=';')
 
-# =====================================================
-# Validasi awal: jika dataset kosong, hentikan proses
-# =====================================================
-if df.empty:
+if len(sys.argv) < 2:
     print(json.dumps({
-        "error": "Dataset CSV kosong atau gagal dibaca"
+        "error": "Path file CSV tidak ditemukan"
     }))
     sys.exit(1)
 
-# =====================================================
-# Normalisasi nama kafe
-# - Menghilangkan spasi berlebih
-# - Menyeragamkan format huruf (Title Case)
-# Tujuan: mencegah duplikasi nama kafe
-# =====================================================
-df['Nama Kafe'] = df['Nama Kafe'].str.strip().str.title()
+csv_path = sys.argv[1]
+
 
 # =====================================================
-# TAHAP 2: SELEKSI FITUR (VARIABEL CLUSTERING)
+# TAHAP 2: LOAD CSV (AUTO DELIMITER + BOM SAFE)
 # =====================================================
-# Skor_Rating TIDAK digunakan sebagai fitur clustering
-# sesuai desain penelitian (rating hanya untuk evaluasi)
+
+try:
+    df = pd.read_csv(
+        csv_path,
+        sep=None,           # Auto detect delimiter
+        engine='python',    # Wajib untuk sep=None
+        encoding='utf-8-sig'  # Hilangkan BOM
+    )
+except Exception as e:
+    print(json.dumps({
+        "error": "Gagal membaca file CSV",
+        "detail": str(e)
+    }))
+    sys.exit(1)
+
+
 # =====================================================
+# VALIDASI DATA KOSONG
+# =====================================================
+
+if df.empty:
+    print(json.dumps({
+        "error": "Dataset CSV kosong"
+    }))
+    sys.exit(1)
+
+
+# =====================================================
+# TAHAP 3: VALIDASI KOLOM WAJIB
+# =====================================================
+
+required_columns = [
+    'Nama Kafe',
+    'Skor_Rasa',
+    'Skor_Pelayanan',
+    'Skor_Fasilitas',
+    'Skor_Suasana',
+    'Skor_Harga',
+    'Skor_Rating'
+]
+
+missing_cols = [c for c in required_columns if c not in df.columns]
+
+if missing_cols:
+    print(json.dumps({
+        "error": "Kolom wajib tidak lengkap",
+        "missing": missing_cols
+    }))
+    sys.exit(1)
+
+
+# =====================================================
+# TAHAP 4: NORMALISASI NAMA KAFE
+# =====================================================
+
+df['Nama Kafe'] = (
+    df['Nama Kafe']
+    .astype(str)
+    .str.strip()
+    .str.title()
+)
+
+
+# =====================================================
+# TAHAP 5: KONVERSI DATA NUMERIK
+# =====================================================
+
 fitur = [
     'Skor_Rasa',
     'Skor_Pelayanan',
@@ -65,83 +109,95 @@ fitur = [
     'Skor_Harga'
 ]
 
-# =====================================================
-# Agregasi data:
-# - Satu kafe bisa memiliki banyak responden
-# - Data digabung dengan rata-rata per kafe
-#
-# Hasil:
-# 1 baris = 1 kafe
-# =====================================================
-df_group = df.groupby('Nama Kafe')[fitur].mean().reset_index()
+for col in fitur + ['Skor_Rating']:
+    df[col] = pd.to_numeric(df[col], errors='coerce')
 
-# =====================================================
-# Validasi hasil agregasi
-# =====================================================
-if df_group.empty:
+
+# Hapus baris yang invalid
+df = df.dropna(subset=fitur)
+
+if df.empty:
     print(json.dumps({
-        "error": "Hasil agregasi data kosong, cek isi CSV"
+        "error": "Semua data numerik invalid"
     }))
     sys.exit(1)
 
+
 # =====================================================
-# TAHAP 3: NORMALISASI DATA (MIN-MAX SCALING)
+# TAHAP 6: AGREGASI PER KAFE
 # =====================================================
-# Tujuan:
-# - Menyamakan skala semua fitur ke rentang 0–1
-# - Menghindari fitur tertentu mendominasi jarak
+
+df_group = (
+    df
+    .groupby('Nama Kafe')[fitur]
+    .mean()
+    .reset_index()
+)
+
+if df_group.empty:
+    print(json.dumps({
+        "error": "Hasil agregasi kosong"
+    }))
+    sys.exit(1)
+
+
 # =====================================================
+# VALIDASI JUMLAH DATA (MINIMAL K)
+# =====================================================
+
+k = 3
+
+if len(df_group) < k:
+    print(json.dumps({
+        "error": "Jumlah kafe kurang dari jumlah cluster",
+        "min_required": k,
+        "current": len(df_group)
+    }))
+    sys.exit(1)
+
+
+# =====================================================
+# TAHAP 7: NORMALISASI (MIN-MAX)
+# =====================================================
+
 scaler = MinMaxScaler()
 X = scaler.fit_transform(df_group[fitur])
 
+
 # =====================================================
-# TAHAP 4: PROSES K-MEANS CLUSTERING
+# TAHAP 8: K-MEANS CLUSTERING
 # =====================================================
-# Parameter:
-# - n_clusters = 3 (sesuai desain penelitian)
-# - random_state = 42 (agar hasil konsisten)
-# - n_init = 10 (standar best practice)
-# =====================================================
-k = 3
+
 kmeans = KMeans(
     n_clusters=k,
     random_state=42,
     n_init=10
 )
 
-# Proses clustering
 labels = kmeans.fit_predict(X)
 
-# Cluster dimulai dari 1 (bukan 0) agar mudah dibaca
 df_group['cluster'] = labels + 1
 
+
 # =====================================================
-# TAHAP 5: HITUNG JARAK KE CENTROID
+# TAHAP 9: HITUNG JARAK CENTROID
 # =====================================================
-# Jarak Euclidean digunakan untuk:
-# - Mengukur kedekatan kafe dengan pusat cluster
-# - Dasar penentuan peringkat dalam cluster
-# =====================================================
+
 centroids = kmeans.cluster_centers_
+
 jarak = []
 
 for i, row in enumerate(X):
     centroid = centroids[labels[i]]
-    # Euclidean Distance
     jarak.append(np.linalg.norm(row - centroid))
 
 df_group['jarak_centroid'] = jarak
 
+
 # =====================================================
-# TAHAP 6: PERINGKAT KAFE DALAM SETIAP CLUSTER
+# TAHAP 10: RANKING PER CLUSTER
 # =====================================================
-# Logika:
-# - Semakin kecil jarak ke centroid → semakin baik
-# - Ranking dilakukan PER CLUSTER (bukan global)
-#
-# method='dense':
-# - Tidak ada loncatan ranking (1,2,3...)
-# =====================================================
+
 df_group['peringkat_cluster'] = (
     df_group
     .groupby('cluster')['jarak_centroid']
@@ -149,18 +205,18 @@ df_group['peringkat_cluster'] = (
     .astype(int)
 )
 
+
 # =====================================================
-# TAHAP 7: OUTPUT JSON UNTUK PHP
+# TAHAP 11: OUTPUT JSON
 # =====================================================
-# Format output disesuaikan agar mudah diproses
-# oleh function_clustering.php
-# =====================================================
+
 output = {
     "k": k,
     "rows": []
 }
 
 for _, r in df_group.iterrows():
+
     output['rows'].append({
         "nama_kafe": r['Nama Kafe'],
         "cluster": int(r['cluster']),
@@ -168,8 +224,5 @@ for _, r in df_group.iterrows():
         "peringkat_cluster": int(r['peringkat_cluster'])
     })
 
-# =====================================================
-# Cetak JSON ke STDOUT
-# PHP akan menangkap output ini via exec()
-# =====================================================
-print(json.dumps(output))
+
+print(json.dumps(output, ensure_ascii=False))

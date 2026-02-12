@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Jakarta');
 $pukul = date('H:i A');
 
 // Deteksi server
-$host = $_SERVER['HTTP_HOST'];
+$host = $_SERVER['SERVER_NAME'];
 if ($host === 'localhost' || strpos($host, '127.0.0.1') !== false) {
     $server     = 'localhost';
     $username   = 'root';
