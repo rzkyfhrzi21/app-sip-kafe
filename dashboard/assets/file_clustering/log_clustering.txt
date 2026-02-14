@@ -1,0 +1,699 @@
+=====================================================
+LOG CLUSTERING - SIP KAFE BALAM
+=====================================================
+Tanggal: 2026-02-14 10:42:08
+File: 2026-02-14_10-42-08_Clustering_SIP_Kafe_Balam.csv
+-----------------------------------------------------
+
+PARAMETER WSM:
+- Bobot Rasa Kopi: 30%
+- Bobot Pelayanan: 20%
+- Bobot Fasilitas: 15%
+- Bobot Suasana: 15%
+- Bobot Harga: 10%
+- Bobot Rating: 10%
+Total Bobot: 100%
+
+STATISTIK DATA:
+- Total Baris Diproses: 194
+- Data Valid: 194 kafe
+- Data Di-skip (corrupt/invalid): 0
+- Jumlah Cluster: 3
+- Iterasi K-Means: 3
+
+HASIL CLUSTERING:
+-----------------------------------------------------
+
+CLUSTER 1:
+   1. 20 Kopi Purnawirawan                     | Jarak: 0.119341 | Rank: 1
+   2. Mizzyu Coffee                            | Jarak: 0.119341 | Rank: 2
+   3. Moore Coffee & Pastry                    | Jarak: 0.119341 | Rank: 3
+   4. Moro Loko                                | Jarak: 0.119341 | Rank: 4
+   5. Muara Cafe & Sapace                      | Jarak: 0.119341 | Rank: 5
+   6. Mujur Coffee                             | Jarak: 0.119341 | Rank: 6
+   7. Nako Coffee Shop                         | Jarak: 0.119341 | Rank: 7
+   8. Nopi Kopi Cafe                           | Jarak: 0.119341 | Rank: 8
+   9. Mikano Kopi                              | Jarak: 0.119341 | Rank: 9
+  10. Nuju Coffe Pahoman                       | Jarak: 0.119341 | Rank: 10
+  11. Nuju Coffee Hq                           | Jarak: 0.119341 | Rank: 11
+  12. Nuju Coffee Gedong Air                   | Jarak: 0.119341 | Rank: 12
+  13. Nuju Coffee Kedaton                      | Jarak: 0.119341 | Rank: 13
+  14. Nuju Coffee Kemiling                     | Jarak: 0.119341 | Rank: 14
+  15. Nuju Coffee Rajabasa                     | Jarak: 0.119341 | Rank: 15
+  16. Nuju Coffee Sudirman                     | Jarak: 0.119341 | Rank: 16
+  17. Nuju Coffee Sukarame                     | Jarak: 0.119341 | Rank: 17
+  18. Nuju Coffee & Space                      | Jarak: 0.119341 | Rank: 18
+  19. Marleys’s Cafe Coffee& Resto           | Jarak: 0.119341 | Rank: 19
+  20. Manca Lite                               | Jarak: 0.119341 | Rank: 20
+  21. Mahira Coffee                            | Jarak: 0.119341 | Rank: 21
+  22. Kopi Ketje Experience                    | Jarak: 0.119341 | Rank: 22
+  23. Kopi Ketje Korpri                        | Jarak: 0.119341 | Rank: 23
+  24. Kopi Ketje Panglima Polim                | Jarak: 0.119341 | Rank: 24
+  25. Kopi Ketje Pramuka                       | Jarak: 0.119341 | Rank: 25
+  26. Kopi Ketje Teluk                         | Jarak: 0.119341 | Rank: 26
+  27. Kopi Sheo Pagar Alam                     | Jarak: 0.119341 | Rank: 27
+  28. Zet Coffee                               | Jarak: 0.119341 | Rank: 28
+  29. Kopi Sudut Bandar Lampung                | Jarak: 0.119341 | Rank: 29
+  30. Kopi Tujuan Kita Cafe & Working Space    | Jarak: 0.119341 | Rank: 30
+  31. Kopikorkanmu                             | Jarak: 0.119341 | Rank: 31
+  32. Kowen Coffee                             | Jarak: 0.119341 | Rank: 32
+  33. Kyafe                                    | Jarak: 0.119341 | Rank: 33
+  34. La Ko Pi Cafe & Hangout Spot             | Jarak: 0.119341 | Rank: 34
+  35. La Vissuon                               | Jarak: 0.119341 | Rank: 35
+  36. Langit Kopi                              | Jarak: 0.119341 | Rank: 36
+  37. Lex Coffee                               | Jarak: 0.119341 | Rank: 37
+  38. Liqo                                     | Jarak: 0.119341 | Rank: 38
+  39. Oma Backyard                             | Jarak: 0.119341 | Rank: 39
+  40. Kopi Kenangan Antasari                   | Jarak: 0.119341 | Rank: 40
+  41. Oma Backyard Gatsu Coffee & Co           | Jarak: 0.119341 | Rank: 41
+  42. Panorama Coffee                          | Jarak: 0.119341 | Rank: 42
+  43. Titik Balik                              | Jarak: 0.119341 | Rank: 43
+  44. Laidback Café                           | Jarak: 0.119341 | Rank: 44
+  45. Toko Mansure                             | Jarak: 0.119341 | Rank: 45
+  46. Tokopi Leipe                             | Jarak: 0.119341 | Rank: 46
+  47. Tomoro Coffee Kemiling                   | Jarak: 0.119341 | Rank: 47
+  48. Tomoro Coffee Pramuka                    | Jarak: 0.119341 | Rank: 48
+  49. Tomoro Coffee Raden Intan                | Jarak: 0.119341 | Rank: 49
+  50. The Palm                                 | Jarak: 0.119341 | Rank: 50
+  51. Tomoro Coffee Teuku Umar                 | Jarak: 0.119341 | Rank: 51
+  52. Tonecoffee.id                            | Jarak: 0.119341 | Rank: 52
+  53. Tukamu Coffee & Tea House No.1           | Jarak: 0.119341 | Rank: 53
+  54. Tukamu Coffee & Tea House No.2           | Jarak: 0.119341 | Rank: 54
+  55. Tukamu Coffee & Tea House No.3           | Jarak: 0.119341 | Rank: 55
+  56. Vezco Sultan Agung                       | Jarak: 0.119341 | Rank: 56
+  57. Warkomunal                               | Jarak: 0.119341 | Rank: 57
+  58. Warkop Jasund                            | Jarak: 0.119341 | Rank: 58
+  59. Tomoro Coffee Unila                      | Jarak: 0.119341 | Rank: 59
+  60. The Oliv                                 | Jarak: 0.119341 | Rank: 60
+  61. The Habits Coffee                        | Jarak: 0.119341 | Rank: 61
+  62. The Gade Coffee & Gold Lampung           | Jarak: 0.119341 | Rank: 62
+  63. Peachy Keen Bar                          | Jarak: 0.119341 | Rank: 63
+  64. Pm Coffee                                | Jarak: 0.119341 | Rank: 64
+  65. Podcast Coffee                           | Jarak: 0.119341 | Rank: 65
+  66. Point Coffee                             | Jarak: 0.119341 | Rank: 66
+  67. Poyz Coffee                              | Jarak: 0.119341 | Rank: 67
+  68. Qalu Coffee                              | Jarak: 0.119341 | Rank: 68
+  69. Sakara Coffee                            | Jarak: 0.119341 | Rank: 69
+  70. Se.ndja                                  | Jarak: 0.119341 | Rank: 70
+  71. Shots Coffee                             | Jarak: 0.119341 | Rank: 71
+  72. Sinia Coffee                             | Jarak: 0.119341 | Rank: 72
+  73. Starbucks Ahmad Yani                     | Jarak: 0.119341 | Rank: 73
+  74. Starbucks Antasari                       | Jarak: 0.119341 | Rank: 74
+  75. Stone Coffee                             | Jarak: 0.119341 | Rank: 75
+  76. Stop One Cafe                            | Jarak: 0.119341 | Rank: 76
+  77. Sugarnishe Coffee                        | Jarak: 0.119341 | Rank: 77
+  78. Sure Coffee                              | Jarak: 0.119341 | Rank: 78
+  79. Tarra Coffee                             | Jarak: 0.119341 | Rank: 79
+  80. One Shoot Coffee                         | Jarak: 0.119341 | Rank: 80
+  81. Kopi Kenangan Ahmad Yani                 | Jarak: 0.119341 | Rank: 81
+  82. Zozo Garden                              | Jarak: 0.119341 | Rank: 82
+  83. Djawara                                  | Jarak: 0.119341 | Rank: 83
+  84. Faste Coffee Rajabasa                    | Jarak: 0.119341 | Rank: 84
+  85. Faste Coffee Kedaton                     | Jarak: 0.119341 | Rank: 85
+  86. Bun Kopi Pahoman                         | Jarak: 0.119341 | Rank: 86
+  87. Faste Coffee Ahmad Yani                  | Jarak: 0.119341 | Rank: 87
+  88. Aimo By Daja                             | Jarak: 0.119341 | Rank: 88
+  89. Enpos Coffee                             | Jarak: 0.119341 | Rank: 89
+  90. Els Coffee Roastery                      | Jarak: 0.119341 | Rank: 90
+  91. Around The Eighty Eight                  | Jarak: 0.119341 | Rank: 91
+  92. Backyard Milkbar                         | Jarak: 0.119341 | Rank: 92
+  93. Els Coffee Lampung Walk                  | Jarak: 0.119341 | Rank: 93
+  94. Els Coffee House                         | Jarak: 0.119341 | Rank: 94
+  95. Dunno Coffee                             | Jarak: 0.119341 | Rank: 95
+  96. Dr. Koffie Sukarame                      | Jarak: 0.119341 | Rank: 96
+  97. Dotuku Kopi                              | Jarak: 0.119341 | Rank: 97
+  98. Doesoen Coffee                           | Jarak: 0.119341 | Rank: 98
+  99. Kongko Kopitiam                          | Jarak: 0.119341 | Rank: 99
+  100. Dazzler Store & Coffee                   | Jarak: 0.119341 | Rank: 100
+  101. Bun Kopi Rawa Laut                       | Jarak: 0.119341 | Rank: 101
+  102. Bun Kopi Unila                           | Jarak: 0.119341 | Rank: 102
+  103. Bun Kopi Wayhalim                        | Jarak: 0.119341 | Rank: 103
+  104. Cabrio Coffee Itera                      | Jarak: 0.119341 | Rank: 104
+  105. Bun Kopi Korpi                           | Jarak: 0.119341 | Rank: 105
+  106. Cafe Janji Surga 2                       | Jarak: 0.119341 | Rank: 106
+  107. Faste Coffee Signature                   | Jarak: 0.119341 | Rank: 107
+  108. Cafe Kiyo                                | Jarak: 0.119341 | Rank: 108
+  109. Boja Coffee                              | Jarak: 0.119341 | Rank: 109
+  110. Bento Kopi                               | Jarak: 0.119341 | Rank: 110
+  111. Coffee Shop Jangdoel                     | Jarak: 0.119341 | Rank: 111
+  112. Benefit Coffee & Space                   | Jarak: 0.119341 | Rank: 112
+  113. Daja                                     | Jarak: 0.119341 | Rank: 113
+  114. Benefit Coffee & Sapace Sukarame         | Jarak: 0.119341 | Rank: 114
+  115. Bun Kopi Kedaton                         | Jarak: 0.119341 | Rank: 115
+  116. Faste Coffee Unila                       | Jarak: 0.119341 | Rank: 116
+  117. Faste Coffee Enggal                      | Jarak: 0.119341 | Rank: 117
+  118. Bun Kopi Marotai                         | Jarak: 0.119341 | Rank: 118
+  119. Kiyo Pahoman                             | Jarak: 0.119341 | Rank: 119
+  120. 20 Kopi Rawa Laut                        | Jarak: 0.119341 | Rank: 120
+  121. Kedai Kopi Kini                          | Jarak: 0.119341 | Rank: 121
+  122. 20 Kopi Teuku Umar                       | Jarak: 0.119341 | Rank: 122
+  123. 20 Kopi Tritayasa                        | Jarak: 0.119341 | Rank: 123
+  124. 20 Kopi Wolter Monginsidi                | Jarak: 0.119341 | Rank: 124
+  125. Kedai Atap                               | Jarak: 0.119341 | Rank: 125
+  126. Katama Coffee & Space                    | Jarak: 0.119341 | Rank: 126
+  127. 20+ Kopi Pramuka                         | Jarak: 0.119341 | Rank: 127
+  128. Flambojan                                | Jarak: 0.119341 | Rank: 128
+  129. Kali Cafe                                | Jarak: 0.119341 | Rank: 129
+  130. Kala Coffee & Space                      | Jarak: 0.119341 | Rank: 130
+  131. 52 Resonance                             | Jarak: 0.119341 | Rank: 131
+  132. 411.foureleven                           | Jarak: 0.119341 | Rank: 132
+  133. Fore Coffee Ahmad Yani                   | Jarak: 0.119341 | Rank: 133
+  134. Jebe Coffee Express                      | Jarak: 0.119341 | Rank: 134
+  135. Fore Coffee Antasari                     | Jarak: 0.119341 | Rank: 135
+  136. Adiksi Coffee Korpri                     | Jarak: 0.119341 | Rank: 136
+  137. Janji Jiwa Unila                         | Jarak: 0.119341 | Rank: 137
+  138. Kl Coffee Indonesia                      | Jarak: 0.119341 | Rank: 138
+  139. 20 Kopi Ratu Langi                       | Jarak: 0.119341 | Rank: 139
+  140. Hum! Collaboration Space                 | Jarak: 0.119341 | Rank: 140
+  141. Hoffmann Lane                            | Jarak: 0.119341 | Rank: 141
+  142. Kolo Garden                              | Jarak: 0.119341 | Rank: 142
+  143. 20 Kopi Sultan Agung                     | Jarak: 0.458010 | Rank: 143
+  144. Tomoro Coffee Antasari                   | Jarak: 0.458010 | Rank: 144
+  145. Tazza Signature                          | Jarak: 0.458010 | Rank: 145
+  146. Test Coffee17                            | Jarak: 0.458010 | Rank: 146
+  147. Thamie Pahoman                           | Jarak: 0.458010 | Rank: 147
+  148. 24 Degress                               | Jarak: 0.458010 | Rank: 148
+  149. Theree Nine Coffee & Eatery              | Jarak: 0.458010 | Rank: 149
+  150. 9.1 Coffee                               | Jarak: 0.458010 | Rank: 150
+  151. Tomoro Coffee Pahoman                    | Jarak: 0.458010 | Rank: 151
+  152. Adiksi Coffee Purnawirawan               | Jarak: 0.458010 | Rank: 152
+  153. Vezco Gedong Air                         | Jarak: 0.458010 | Rank: 153
+  154. The Pearl                                | Jarak: 0.458010 | Rank: 154
+  155. Kopi Janji Jiwa Imam Bonjol              | Jarak: 0.458010 | Rank: 155
+  156. Manca Eatery                             | Jarak: 0.458010 | Rank: 156
+  157. Kopi Kenangan Kedaton                    | Jarak: 0.458010 | Rank: 157
+  158. Kiyo Time Pramuka                        | Jarak: 0.458010 | Rank: 158
+  159. Kiyo Libare Korpri & 51 Carwash          | Jarak: 0.458010 | Rank: 159
+  160. Kiyo Libare                              | Jarak: 0.458010 | Rank: 160
+  161. Kopi Koccok                              | Jarak: 0.458010 | Rank: 161
+  162. Kopi Oey Lampung                         | Jarak: 0.458010 | Rank: 162
+  163. Kopi Sheo X Donat Eo Antasari            | Jarak: 0.458010 | Rank: 163
+  164. Kafe Santurasi                           | Jarak: 0.458010 | Rank: 164
+  165. Janji Jiwa & Jiwa Toast Sukarame         | Jarak: 0.458010 | Rank: 165
+  166. Cabrio Premier Coffee                    | Jarak: 0.458010 | Rank: 166
+  167. Flipflop Coffee                          | Jarak: 0.458010 | Rank: 167
+  168. Nnoko Café                              | Jarak: 0.458010 | Rank: 168
+  169. Kopi Sheo X Dinat Eo Kemiling            | Jarak: 0.458010 | Rank: 169
+  170. Els Coffee Raden Inten Ii                | Jarak: 0.458010 | Rank: 170
+  171. Rumah Kawan 3                            | Jarak: 0.458010 | Rank: 171
+  172. Cafe Kolo                                | Jarak: 0.458010 | Rank: 172
+  173. Cafe Kopi Legend                         | Jarak: 0.458010 | Rank: 173
+  174. Notiz Hut                                | Jarak: 0.458010 | Rank: 174
+  175. Day One Coffee                           | Jarak: 0.458010 | Rank: 175
+  176. Dahareun                                 | Jarak: 0.458010 | Rank: 176
+  177. Panacea Coffee                           | Jarak: 0.458010 | Rank: 177
+  178. D’jaya House                           | Jarak: 0.458010 | Rank: 178
+  179. Els Coffee Mbk                           | Jarak: 0.458010 | Rank: 179
+  Total: 179 kafe
+
+CLUSTER 2:
+   1. Jenggala Coffee And Brew                 | Jarak: 0.072169 | Rank: 1
+   2. Fore Coffee Mbk                          | Jarak: 0.072169 | Rank: 2
+   3. Starbucks Mbk                            | Jarak: 0.072169 | Rank: 3
+   4. One More Coffee                          | Jarak: 0.072169 | Rank: 4
+   5. Small Block Coffee                       | Jarak: 0.072169 | Rank: 5
+   6. Kopi Ketje Mall Kartini                  | Jarak: 0.072169 | Rank: 6
+   7. Kopi Tempat Ketiga Sukarame              | Jarak: 0.072169 | Rank: 7
+   8. Kopi Tempat Ketiga                       | Jarak: 0.505181 | Rank: 8
+  Total: 8 kafe
+
+CLUSTER 3:
+   1. Kopitiam Uncle                           | Jarak: 0.082479 | Rank: 1
+   2. Ice & Coffee                             | Jarak: 0.082479 | Rank: 2
+   3. Rumah Kawan                              | Jarak: 0.082479 | Rank: 3
+   4. Rumah Kawan 2                            | Jarak: 0.082479 | Rank: 4
+   5. Yaba House                               | Jarak: 0.082479 | Rank: 5
+   6. Rumah Kawan 4                            | Jarak: 0.082479 | Rank: 6
+   7. Kopi Ketje Unila                         | Jarak: 0.494872 | Rank: 7
+  Total: 7 kafe
+
+=====================================================
+END OF LOG
+=====================================================
+
+=====================================================
+LOG CLUSTERING - SIP KAFE BALAM
+=====================================================
+Tanggal: 2026-02-14 10:42:24
+File: 2026-02-14_10-42-23_Clustering_SIP_Kafe_Balam.csv
+-----------------------------------------------------
+
+PARAMETER WSM:
+- Bobot Rasa Kopi: 30%
+- Bobot Pelayanan: 20%
+- Bobot Fasilitas: 15%
+- Bobot Suasana: 15%
+- Bobot Harga: 10%
+- Bobot Rating: 10%
+Total Bobot: 100%
+
+STATISTIK DATA:
+- Total Baris Diproses: 194
+- Data Valid: 194 kafe
+- Data Di-skip (corrupt/invalid): 0
+- Jumlah Cluster: 3
+- Iterasi K-Means: 2
+
+HASIL CLUSTERING:
+-----------------------------------------------------
+
+CLUSTER 1:
+   1. 20 Kopi Purnawirawan                     | Jarak: 0.119341 | Rank: 1
+   2. Mizzyu Coffee                            | Jarak: 0.119341 | Rank: 2
+   3. Moore Coffee & Pastry                    | Jarak: 0.119341 | Rank: 3
+   4. Moro Loko                                | Jarak: 0.119341 | Rank: 4
+   5. Muara Cafe & Sapace                      | Jarak: 0.119341 | Rank: 5
+   6. Mujur Coffee                             | Jarak: 0.119341 | Rank: 6
+   7. Nako Coffee Shop                         | Jarak: 0.119341 | Rank: 7
+   8. Nopi Kopi Cafe                           | Jarak: 0.119341 | Rank: 8
+   9. Mikano Kopi                              | Jarak: 0.119341 | Rank: 9
+  10. Nuju Coffe Pahoman                       | Jarak: 0.119341 | Rank: 10
+  11. Nuju Coffee Hq                           | Jarak: 0.119341 | Rank: 11
+  12. Nuju Coffee Gedong Air                   | Jarak: 0.119341 | Rank: 12
+  13. Nuju Coffee Kedaton                      | Jarak: 0.119341 | Rank: 13
+  14. Nuju Coffee Kemiling                     | Jarak: 0.119341 | Rank: 14
+  15. Nuju Coffee Rajabasa                     | Jarak: 0.119341 | Rank: 15
+  16. Nuju Coffee Sudirman                     | Jarak: 0.119341 | Rank: 16
+  17. Nuju Coffee Sukarame                     | Jarak: 0.119341 | Rank: 17
+  18. Nuju Coffee & Space                      | Jarak: 0.119341 | Rank: 18
+  19. Marleys’s Cafe Coffee& Resto           | Jarak: 0.119341 | Rank: 19
+  20. Manca Lite                               | Jarak: 0.119341 | Rank: 20
+  21. Mahira Coffee                            | Jarak: 0.119341 | Rank: 21
+  22. Kopi Ketje Experience                    | Jarak: 0.119341 | Rank: 22
+  23. Kopi Ketje Korpri                        | Jarak: 0.119341 | Rank: 23
+  24. Kopi Ketje Panglima Polim                | Jarak: 0.119341 | Rank: 24
+  25. Kopi Ketje Pramuka                       | Jarak: 0.119341 | Rank: 25
+  26. Kopi Ketje Teluk                         | Jarak: 0.119341 | Rank: 26
+  27. Kopi Sheo Pagar Alam                     | Jarak: 0.119341 | Rank: 27
+  28. Zet Coffee                               | Jarak: 0.119341 | Rank: 28
+  29. Kopi Sudut Bandar Lampung                | Jarak: 0.119341 | Rank: 29
+  30. Kopi Tujuan Kita Cafe & Working Space    | Jarak: 0.119341 | Rank: 30
+  31. Kopikorkanmu                             | Jarak: 0.119341 | Rank: 31
+  32. Kowen Coffee                             | Jarak: 0.119341 | Rank: 32
+  33. Kyafe                                    | Jarak: 0.119341 | Rank: 33
+  34. La Ko Pi Cafe & Hangout Spot             | Jarak: 0.119341 | Rank: 34
+  35. La Vissuon                               | Jarak: 0.119341 | Rank: 35
+  36. Langit Kopi                              | Jarak: 0.119341 | Rank: 36
+  37. Lex Coffee                               | Jarak: 0.119341 | Rank: 37
+  38. Liqo                                     | Jarak: 0.119341 | Rank: 38
+  39. Oma Backyard                             | Jarak: 0.119341 | Rank: 39
+  40. Kopi Kenangan Antasari                   | Jarak: 0.119341 | Rank: 40
+  41. Oma Backyard Gatsu Coffee & Co           | Jarak: 0.119341 | Rank: 41
+  42. Panorama Coffee                          | Jarak: 0.119341 | Rank: 42
+  43. Titik Balik                              | Jarak: 0.119341 | Rank: 43
+  44. Laidback Café                           | Jarak: 0.119341 | Rank: 44
+  45. Toko Mansure                             | Jarak: 0.119341 | Rank: 45
+  46. Tokopi Leipe                             | Jarak: 0.119341 | Rank: 46
+  47. Tomoro Coffee Kemiling                   | Jarak: 0.119341 | Rank: 47
+  48. Tomoro Coffee Pramuka                    | Jarak: 0.119341 | Rank: 48
+  49. Tomoro Coffee Raden Intan                | Jarak: 0.119341 | Rank: 49
+  50. The Palm                                 | Jarak: 0.119341 | Rank: 50
+  51. Tomoro Coffee Teuku Umar                 | Jarak: 0.119341 | Rank: 51
+  52. Tonecoffee.id                            | Jarak: 0.119341 | Rank: 52
+  53. Tukamu Coffee & Tea House No.1           | Jarak: 0.119341 | Rank: 53
+  54. Tukamu Coffee & Tea House No.2           | Jarak: 0.119341 | Rank: 54
+  55. Tukamu Coffee & Tea House No.3           | Jarak: 0.119341 | Rank: 55
+  56. Vezco Sultan Agung                       | Jarak: 0.119341 | Rank: 56
+  57. Warkomunal                               | Jarak: 0.119341 | Rank: 57
+  58. Warkop Jasund                            | Jarak: 0.119341 | Rank: 58
+  59. Tomoro Coffee Unila                      | Jarak: 0.119341 | Rank: 59
+  60. The Oliv                                 | Jarak: 0.119341 | Rank: 60
+  61. The Habits Coffee                        | Jarak: 0.119341 | Rank: 61
+  62. The Gade Coffee & Gold Lampung           | Jarak: 0.119341 | Rank: 62
+  63. Peachy Keen Bar                          | Jarak: 0.119341 | Rank: 63
+  64. Pm Coffee                                | Jarak: 0.119341 | Rank: 64
+  65. Podcast Coffee                           | Jarak: 0.119341 | Rank: 65
+  66. Point Coffee                             | Jarak: 0.119341 | Rank: 66
+  67. Poyz Coffee                              | Jarak: 0.119341 | Rank: 67
+  68. Qalu Coffee                              | Jarak: 0.119341 | Rank: 68
+  69. Sakara Coffee                            | Jarak: 0.119341 | Rank: 69
+  70. Se.ndja                                  | Jarak: 0.119341 | Rank: 70
+  71. Shots Coffee                             | Jarak: 0.119341 | Rank: 71
+  72. Sinia Coffee                             | Jarak: 0.119341 | Rank: 72
+  73. Starbucks Ahmad Yani                     | Jarak: 0.119341 | Rank: 73
+  74. Starbucks Antasari                       | Jarak: 0.119341 | Rank: 74
+  75. Stone Coffee                             | Jarak: 0.119341 | Rank: 75
+  76. Stop One Cafe                            | Jarak: 0.119341 | Rank: 76
+  77. Sugarnishe Coffee                        | Jarak: 0.119341 | Rank: 77
+  78. Sure Coffee                              | Jarak: 0.119341 | Rank: 78
+  79. Tarra Coffee                             | Jarak: 0.119341 | Rank: 79
+  80. One Shoot Coffee                         | Jarak: 0.119341 | Rank: 80
+  81. Kopi Kenangan Ahmad Yani                 | Jarak: 0.119341 | Rank: 81
+  82. Zozo Garden                              | Jarak: 0.119341 | Rank: 82
+  83. Djawara                                  | Jarak: 0.119341 | Rank: 83
+  84. Faste Coffee Rajabasa                    | Jarak: 0.119341 | Rank: 84
+  85. Faste Coffee Kedaton                     | Jarak: 0.119341 | Rank: 85
+  86. Bun Kopi Pahoman                         | Jarak: 0.119341 | Rank: 86
+  87. Faste Coffee Ahmad Yani                  | Jarak: 0.119341 | Rank: 87
+  88. Aimo By Daja                             | Jarak: 0.119341 | Rank: 88
+  89. Enpos Coffee                             | Jarak: 0.119341 | Rank: 89
+  90. Els Coffee Roastery                      | Jarak: 0.119341 | Rank: 90
+  91. Around The Eighty Eight                  | Jarak: 0.119341 | Rank: 91
+  92. Backyard Milkbar                         | Jarak: 0.119341 | Rank: 92
+  93. Els Coffee Lampung Walk                  | Jarak: 0.119341 | Rank: 93
+  94. Els Coffee House                         | Jarak: 0.119341 | Rank: 94
+  95. Dunno Coffee                             | Jarak: 0.119341 | Rank: 95
+  96. Dr. Koffie Sukarame                      | Jarak: 0.119341 | Rank: 96
+  97. Dotuku Kopi                              | Jarak: 0.119341 | Rank: 97
+  98. Doesoen Coffee                           | Jarak: 0.119341 | Rank: 98
+  99. Kongko Kopitiam                          | Jarak: 0.119341 | Rank: 99
+  100. Dazzler Store & Coffee                   | Jarak: 0.119341 | Rank: 100
+  101. Bun Kopi Rawa Laut                       | Jarak: 0.119341 | Rank: 101
+  102. Bun Kopi Unila                           | Jarak: 0.119341 | Rank: 102
+  103. Bun Kopi Wayhalim                        | Jarak: 0.119341 | Rank: 103
+  104. Cabrio Coffee Itera                      | Jarak: 0.119341 | Rank: 104
+  105. Bun Kopi Korpi                           | Jarak: 0.119341 | Rank: 105
+  106. Cafe Janji Surga 2                       | Jarak: 0.119341 | Rank: 106
+  107. Faste Coffee Signature                   | Jarak: 0.119341 | Rank: 107
+  108. Cafe Kiyo                                | Jarak: 0.119341 | Rank: 108
+  109. Boja Coffee                              | Jarak: 0.119341 | Rank: 109
+  110. Bento Kopi                               | Jarak: 0.119341 | Rank: 110
+  111. Coffee Shop Jangdoel                     | Jarak: 0.119341 | Rank: 111
+  112. Benefit Coffee & Space                   | Jarak: 0.119341 | Rank: 112
+  113. Daja                                     | Jarak: 0.119341 | Rank: 113
+  114. Benefit Coffee & Sapace Sukarame         | Jarak: 0.119341 | Rank: 114
+  115. Bun Kopi Kedaton                         | Jarak: 0.119341 | Rank: 115
+  116. Faste Coffee Unila                       | Jarak: 0.119341 | Rank: 116
+  117. Faste Coffee Enggal                      | Jarak: 0.119341 | Rank: 117
+  118. Bun Kopi Marotai                         | Jarak: 0.119341 | Rank: 118
+  119. Kiyo Pahoman                             | Jarak: 0.119341 | Rank: 119
+  120. 20 Kopi Rawa Laut                        | Jarak: 0.119341 | Rank: 120
+  121. Kedai Kopi Kini                          | Jarak: 0.119341 | Rank: 121
+  122. 20 Kopi Teuku Umar                       | Jarak: 0.119341 | Rank: 122
+  123. 20 Kopi Tritayasa                        | Jarak: 0.119341 | Rank: 123
+  124. 20 Kopi Wolter Monginsidi                | Jarak: 0.119341 | Rank: 124
+  125. Kedai Atap                               | Jarak: 0.119341 | Rank: 125
+  126. Katama Coffee & Space                    | Jarak: 0.119341 | Rank: 126
+  127. 20+ Kopi Pramuka                         | Jarak: 0.119341 | Rank: 127
+  128. Flambojan                                | Jarak: 0.119341 | Rank: 128
+  129. Kali Cafe                                | Jarak: 0.119341 | Rank: 129
+  130. Kala Coffee & Space                      | Jarak: 0.119341 | Rank: 130
+  131. 52 Resonance                             | Jarak: 0.119341 | Rank: 131
+  132. 411.foureleven                           | Jarak: 0.119341 | Rank: 132
+  133. Fore Coffee Ahmad Yani                   | Jarak: 0.119341 | Rank: 133
+  134. Jebe Coffee Express                      | Jarak: 0.119341 | Rank: 134
+  135. Fore Coffee Antasari                     | Jarak: 0.119341 | Rank: 135
+  136. Adiksi Coffee Korpri                     | Jarak: 0.119341 | Rank: 136
+  137. Janji Jiwa Unila                         | Jarak: 0.119341 | Rank: 137
+  138. Kl Coffee Indonesia                      | Jarak: 0.119341 | Rank: 138
+  139. 20 Kopi Ratu Langi                       | Jarak: 0.119341 | Rank: 139
+  140. Hum! Collaboration Space                 | Jarak: 0.119341 | Rank: 140
+  141. Hoffmann Lane                            | Jarak: 0.119341 | Rank: 141
+  142. Kolo Garden                              | Jarak: 0.119341 | Rank: 142
+  143. 20 Kopi Sultan Agung                     | Jarak: 0.458010 | Rank: 143
+  144. Tomoro Coffee Antasari                   | Jarak: 0.458010 | Rank: 144
+  145. Tazza Signature                          | Jarak: 0.458010 | Rank: 145
+  146. Test Coffee17                            | Jarak: 0.458010 | Rank: 146
+  147. Thamie Pahoman                           | Jarak: 0.458010 | Rank: 147
+  148. 24 Degress                               | Jarak: 0.458010 | Rank: 148
+  149. Theree Nine Coffee & Eatery              | Jarak: 0.458010 | Rank: 149
+  150. 9.1 Coffee                               | Jarak: 0.458010 | Rank: 150
+  151. Tomoro Coffee Pahoman                    | Jarak: 0.458010 | Rank: 151
+  152. Adiksi Coffee Purnawirawan               | Jarak: 0.458010 | Rank: 152
+  153. Vezco Gedong Air                         | Jarak: 0.458010 | Rank: 153
+  154. The Pearl                                | Jarak: 0.458010 | Rank: 154
+  155. Kopi Janji Jiwa Imam Bonjol              | Jarak: 0.458010 | Rank: 155
+  156. Manca Eatery                             | Jarak: 0.458010 | Rank: 156
+  157. Kopi Kenangan Kedaton                    | Jarak: 0.458010 | Rank: 157
+  158. Kiyo Time Pramuka                        | Jarak: 0.458010 | Rank: 158
+  159. Kiyo Libare Korpri & 51 Carwash          | Jarak: 0.458010 | Rank: 159
+  160. Kiyo Libare                              | Jarak: 0.458010 | Rank: 160
+  161. Kopi Koccok                              | Jarak: 0.458010 | Rank: 161
+  162. Kopi Oey Lampung                         | Jarak: 0.458010 | Rank: 162
+  163. Kopi Sheo X Donat Eo Antasari            | Jarak: 0.458010 | Rank: 163
+  164. Kafe Santurasi                           | Jarak: 0.458010 | Rank: 164
+  165. Janji Jiwa & Jiwa Toast Sukarame         | Jarak: 0.458010 | Rank: 165
+  166. Cabrio Premier Coffee                    | Jarak: 0.458010 | Rank: 166
+  167. Flipflop Coffee                          | Jarak: 0.458010 | Rank: 167
+  168. Nnoko Café                              | Jarak: 0.458010 | Rank: 168
+  169. Kopi Sheo X Dinat Eo Kemiling            | Jarak: 0.458010 | Rank: 169
+  170. Els Coffee Raden Inten Ii                | Jarak: 0.458010 | Rank: 170
+  171. Rumah Kawan 3                            | Jarak: 0.458010 | Rank: 171
+  172. Cafe Kolo                                | Jarak: 0.458010 | Rank: 172
+  173. Cafe Kopi Legend                         | Jarak: 0.458010 | Rank: 173
+  174. Notiz Hut                                | Jarak: 0.458010 | Rank: 174
+  175. Day One Coffee                           | Jarak: 0.458010 | Rank: 175
+  176. Dahareun                                 | Jarak: 0.458010 | Rank: 176
+  177. Panacea Coffee                           | Jarak: 0.458010 | Rank: 177
+  178. D’jaya House                           | Jarak: 0.458010 | Rank: 178
+  179. Els Coffee Mbk                           | Jarak: 0.458010 | Rank: 179
+  Total: 179 kafe
+
+CLUSTER 2:
+   1. Kopitiam Uncle                           | Jarak: 0.082479 | Rank: 1
+   2. Ice & Coffee                             | Jarak: 0.082479 | Rank: 2
+   3. Rumah Kawan                              | Jarak: 0.082479 | Rank: 3
+   4. Rumah Kawan 2                            | Jarak: 0.082479 | Rank: 4
+   5. Yaba House                               | Jarak: 0.082479 | Rank: 5
+   6. Rumah Kawan 4                            | Jarak: 0.082479 | Rank: 6
+   7. Kopi Ketje Unila                         | Jarak: 0.494872 | Rank: 7
+  Total: 7 kafe
+
+CLUSTER 3:
+   1. Jenggala Coffee And Brew                 | Jarak: 0.072169 | Rank: 1
+   2. Fore Coffee Mbk                          | Jarak: 0.072169 | Rank: 2
+   3. Starbucks Mbk                            | Jarak: 0.072169 | Rank: 3
+   4. One More Coffee                          | Jarak: 0.072169 | Rank: 4
+   5. Small Block Coffee                       | Jarak: 0.072169 | Rank: 5
+   6. Kopi Ketje Mall Kartini                  | Jarak: 0.072169 | Rank: 6
+   7. Kopi Tempat Ketiga Sukarame              | Jarak: 0.072169 | Rank: 7
+   8. Kopi Tempat Ketiga                       | Jarak: 0.505181 | Rank: 8
+  Total: 8 kafe
+
+=====================================================
+END OF LOG
+=====================================================
+
+=====================================================
+LOG CLUSTERING - SIP KAFE BALAM
+=====================================================
+Tanggal: 2026-02-14 10:42:53
+File: 2026-02-14_10-42-53_Clustering_SIP_Kafe_Balam.csv
+-----------------------------------------------------
+
+PARAMETER WSM:
+- Bobot Rasa Kopi: 30%
+- Bobot Pelayanan: 20%
+- Bobot Fasilitas: 15%
+- Bobot Suasana: 15%
+- Bobot Harga: 10%
+- Bobot Rating: 10%
+Total Bobot: 100%
+
+STATISTIK DATA:
+- Total Baris Diproses: 194
+- Data Valid: 194 kafe
+- Data Di-skip (corrupt/invalid): 0
+- Jumlah Cluster: 3
+- Iterasi K-Means: 2
+
+HASIL CLUSTERING:
+-----------------------------------------------------
+
+CLUSTER 1:
+   1. 20 Kopi Purnawirawan                     | Jarak: 0.119341 | Rank: 1
+   2. Mizzyu Coffee                            | Jarak: 0.119341 | Rank: 2
+   3. Moore Coffee & Pastry                    | Jarak: 0.119341 | Rank: 3
+   4. Moro Loko                                | Jarak: 0.119341 | Rank: 4
+   5. Muara Cafe & Sapace                      | Jarak: 0.119341 | Rank: 5
+   6. Mujur Coffee                             | Jarak: 0.119341 | Rank: 6
+   7. Nako Coffee Shop                         | Jarak: 0.119341 | Rank: 7
+   8. Nopi Kopi Cafe                           | Jarak: 0.119341 | Rank: 8
+   9. Mikano Kopi                              | Jarak: 0.119341 | Rank: 9
+  10. Nuju Coffe Pahoman                       | Jarak: 0.119341 | Rank: 10
+  11. Nuju Coffee Hq                           | Jarak: 0.119341 | Rank: 11
+  12. Nuju Coffee Gedong Air                   | Jarak: 0.119341 | Rank: 12
+  13. Nuju Coffee Kedaton                      | Jarak: 0.119341 | Rank: 13
+  14. Nuju Coffee Kemiling                     | Jarak: 0.119341 | Rank: 14
+  15. Nuju Coffee Rajabasa                     | Jarak: 0.119341 | Rank: 15
+  16. Nuju Coffee Sudirman                     | Jarak: 0.119341 | Rank: 16
+  17. Nuju Coffee Sukarame                     | Jarak: 0.119341 | Rank: 17
+  18. Nuju Coffee & Space                      | Jarak: 0.119341 | Rank: 18
+  19. Marleys’s Cafe Coffee& Resto           | Jarak: 0.119341 | Rank: 19
+  20. Manca Lite                               | Jarak: 0.119341 | Rank: 20
+  21. Mahira Coffee                            | Jarak: 0.119341 | Rank: 21
+  22. Kopi Ketje Experience                    | Jarak: 0.119341 | Rank: 22
+  23. Kopi Ketje Korpri                        | Jarak: 0.119341 | Rank: 23
+  24. Kopi Ketje Panglima Polim                | Jarak: 0.119341 | Rank: 24
+  25. Kopi Ketje Pramuka                       | Jarak: 0.119341 | Rank: 25
+  26. Kopi Ketje Teluk                         | Jarak: 0.119341 | Rank: 26
+  27. Kopi Sheo Pagar Alam                     | Jarak: 0.119341 | Rank: 27
+  28. Zet Coffee                               | Jarak: 0.119341 | Rank: 28
+  29. Kopi Sudut Bandar Lampung                | Jarak: 0.119341 | Rank: 29
+  30. Kopi Tujuan Kita Cafe & Working Space    | Jarak: 0.119341 | Rank: 30
+  31. Kopikorkanmu                             | Jarak: 0.119341 | Rank: 31
+  32. Kowen Coffee                             | Jarak: 0.119341 | Rank: 32
+  33. Kyafe                                    | Jarak: 0.119341 | Rank: 33
+  34. La Ko Pi Cafe & Hangout Spot             | Jarak: 0.119341 | Rank: 34
+  35. La Vissuon                               | Jarak: 0.119341 | Rank: 35
+  36. Langit Kopi                              | Jarak: 0.119341 | Rank: 36
+  37. Lex Coffee                               | Jarak: 0.119341 | Rank: 37
+  38. Liqo                                     | Jarak: 0.119341 | Rank: 38
+  39. Oma Backyard                             | Jarak: 0.119341 | Rank: 39
+  40. Kopi Kenangan Antasari                   | Jarak: 0.119341 | Rank: 40
+  41. Oma Backyard Gatsu Coffee & Co           | Jarak: 0.119341 | Rank: 41
+  42. Panorama Coffee                          | Jarak: 0.119341 | Rank: 42
+  43. Titik Balik                              | Jarak: 0.119341 | Rank: 43
+  44. Laidback Café                           | Jarak: 0.119341 | Rank: 44
+  45. Toko Mansure                             | Jarak: 0.119341 | Rank: 45
+  46. Tokopi Leipe                             | Jarak: 0.119341 | Rank: 46
+  47. Tomoro Coffee Kemiling                   | Jarak: 0.119341 | Rank: 47
+  48. Tomoro Coffee Pramuka                    | Jarak: 0.119341 | Rank: 48
+  49. Tomoro Coffee Raden Intan                | Jarak: 0.119341 | Rank: 49
+  50. The Palm                                 | Jarak: 0.119341 | Rank: 50
+  51. Tomoro Coffee Teuku Umar                 | Jarak: 0.119341 | Rank: 51
+  52. Tonecoffee.id                            | Jarak: 0.119341 | Rank: 52
+  53. Tukamu Coffee & Tea House No.1           | Jarak: 0.119341 | Rank: 53
+  54. Tukamu Coffee & Tea House No.2           | Jarak: 0.119341 | Rank: 54
+  55. Tukamu Coffee & Tea House No.3           | Jarak: 0.119341 | Rank: 55
+  56. Vezco Sultan Agung                       | Jarak: 0.119341 | Rank: 56
+  57. Warkomunal                               | Jarak: 0.119341 | Rank: 57
+  58. Warkop Jasund                            | Jarak: 0.119341 | Rank: 58
+  59. Tomoro Coffee Unila                      | Jarak: 0.119341 | Rank: 59
+  60. The Oliv                                 | Jarak: 0.119341 | Rank: 60
+  61. The Habits Coffee                        | Jarak: 0.119341 | Rank: 61
+  62. The Gade Coffee & Gold Lampung           | Jarak: 0.119341 | Rank: 62
+  63. Peachy Keen Bar                          | Jarak: 0.119341 | Rank: 63
+  64. Pm Coffee                                | Jarak: 0.119341 | Rank: 64
+  65. Podcast Coffee                           | Jarak: 0.119341 | Rank: 65
+  66. Point Coffee                             | Jarak: 0.119341 | Rank: 66
+  67. Poyz Coffee                              | Jarak: 0.119341 | Rank: 67
+  68. Qalu Coffee                              | Jarak: 0.119341 | Rank: 68
+  69. Sakara Coffee                            | Jarak: 0.119341 | Rank: 69
+  70. Se.ndja                                  | Jarak: 0.119341 | Rank: 70
+  71. Shots Coffee                             | Jarak: 0.119341 | Rank: 71
+  72. Sinia Coffee                             | Jarak: 0.119341 | Rank: 72
+  73. Starbucks Ahmad Yani                     | Jarak: 0.119341 | Rank: 73
+  74. Starbucks Antasari                       | Jarak: 0.119341 | Rank: 74
+  75. Stone Coffee                             | Jarak: 0.119341 | Rank: 75
+  76. Stop One Cafe                            | Jarak: 0.119341 | Rank: 76
+  77. Sugarnishe Coffee                        | Jarak: 0.119341 | Rank: 77
+  78. Sure Coffee                              | Jarak: 0.119341 | Rank: 78
+  79. Tarra Coffee                             | Jarak: 0.119341 | Rank: 79
+  80. One Shoot Coffee                         | Jarak: 0.119341 | Rank: 80
+  81. Kopi Kenangan Ahmad Yani                 | Jarak: 0.119341 | Rank: 81
+  82. Zozo Garden                              | Jarak: 0.119341 | Rank: 82
+  83. Djawara                                  | Jarak: 0.119341 | Rank: 83
+  84. Faste Coffee Rajabasa                    | Jarak: 0.119341 | Rank: 84
+  85. Faste Coffee Kedaton                     | Jarak: 0.119341 | Rank: 85
+  86. Bun Kopi Pahoman                         | Jarak: 0.119341 | Rank: 86
+  87. Faste Coffee Ahmad Yani                  | Jarak: 0.119341 | Rank: 87
+  88. Aimo By Daja                             | Jarak: 0.119341 | Rank: 88
+  89. Enpos Coffee                             | Jarak: 0.119341 | Rank: 89
+  90. Els Coffee Roastery                      | Jarak: 0.119341 | Rank: 90
+  91. Around The Eighty Eight                  | Jarak: 0.119341 | Rank: 91
+  92. Backyard Milkbar                         | Jarak: 0.119341 | Rank: 92
+  93. Els Coffee Lampung Walk                  | Jarak: 0.119341 | Rank: 93
+  94. Els Coffee House                         | Jarak: 0.119341 | Rank: 94
+  95. Dunno Coffee                             | Jarak: 0.119341 | Rank: 95
+  96. Dr. Koffie Sukarame                      | Jarak: 0.119341 | Rank: 96
+  97. Dotuku Kopi                              | Jarak: 0.119341 | Rank: 97
+  98. Doesoen Coffee                           | Jarak: 0.119341 | Rank: 98
+  99. Kongko Kopitiam                          | Jarak: 0.119341 | Rank: 99
+  100. Dazzler Store & Coffee                   | Jarak: 0.119341 | Rank: 100
+  101. Bun Kopi Rawa Laut                       | Jarak: 0.119341 | Rank: 101
+  102. Bun Kopi Unila                           | Jarak: 0.119341 | Rank: 102
+  103. Bun Kopi Wayhalim                        | Jarak: 0.119341 | Rank: 103
+  104. Cabrio Coffee Itera                      | Jarak: 0.119341 | Rank: 104
+  105. Bun Kopi Korpi                           | Jarak: 0.119341 | Rank: 105
+  106. Cafe Janji Surga 2                       | Jarak: 0.119341 | Rank: 106
+  107. Faste Coffee Signature                   | Jarak: 0.119341 | Rank: 107
+  108. Cafe Kiyo                                | Jarak: 0.119341 | Rank: 108
+  109. Boja Coffee                              | Jarak: 0.119341 | Rank: 109
+  110. Bento Kopi                               | Jarak: 0.119341 | Rank: 110
+  111. Coffee Shop Jangdoel                     | Jarak: 0.119341 | Rank: 111
+  112. Benefit Coffee & Space                   | Jarak: 0.119341 | Rank: 112
+  113. Daja                                     | Jarak: 0.119341 | Rank: 113
+  114. Benefit Coffee & Sapace Sukarame         | Jarak: 0.119341 | Rank: 114
+  115. Bun Kopi Kedaton                         | Jarak: 0.119341 | Rank: 115
+  116. Faste Coffee Unila                       | Jarak: 0.119341 | Rank: 116
+  117. Faste Coffee Enggal                      | Jarak: 0.119341 | Rank: 117
+  118. Bun Kopi Marotai                         | Jarak: 0.119341 | Rank: 118
+  119. Kiyo Pahoman                             | Jarak: 0.119341 | Rank: 119
+  120. 20 Kopi Rawa Laut                        | Jarak: 0.119341 | Rank: 120
+  121. Kedai Kopi Kini                          | Jarak: 0.119341 | Rank: 121
+  122. 20 Kopi Teuku Umar                       | Jarak: 0.119341 | Rank: 122
+  123. 20 Kopi Tritayasa                        | Jarak: 0.119341 | Rank: 123
+  124. 20 Kopi Wolter Monginsidi                | Jarak: 0.119341 | Rank: 124
+  125. Kedai Atap                               | Jarak: 0.119341 | Rank: 125
+  126. Katama Coffee & Space                    | Jarak: 0.119341 | Rank: 126
+  127. 20+ Kopi Pramuka                         | Jarak: 0.119341 | Rank: 127
+  128. Flambojan                                | Jarak: 0.119341 | Rank: 128
+  129. Kali Cafe                                | Jarak: 0.119341 | Rank: 129
+  130. Kala Coffee & Space                      | Jarak: 0.119341 | Rank: 130
+  131. 52 Resonance                             | Jarak: 0.119341 | Rank: 131
+  132. 411.foureleven                           | Jarak: 0.119341 | Rank: 132
+  133. Fore Coffee Ahmad Yani                   | Jarak: 0.119341 | Rank: 133
+  134. Jebe Coffee Express                      | Jarak: 0.119341 | Rank: 134
+  135. Fore Coffee Antasari                     | Jarak: 0.119341 | Rank: 135
+  136. Adiksi Coffee Korpri                     | Jarak: 0.119341 | Rank: 136
+  137. Janji Jiwa Unila                         | Jarak: 0.119341 | Rank: 137
+  138. Kl Coffee Indonesia                      | Jarak: 0.119341 | Rank: 138
+  139. 20 Kopi Ratu Langi                       | Jarak: 0.119341 | Rank: 139
+  140. Hum! Collaboration Space                 | Jarak: 0.119341 | Rank: 140
+  141. Hoffmann Lane                            | Jarak: 0.119341 | Rank: 141
+  142. Kolo Garden                              | Jarak: 0.119341 | Rank: 142
+  143. 20 Kopi Sultan Agung                     | Jarak: 0.458010 | Rank: 143
+  144. Tomoro Coffee Antasari                   | Jarak: 0.458010 | Rank: 144
+  145. Tazza Signature                          | Jarak: 0.458010 | Rank: 145
+  146. Test Coffee17                            | Jarak: 0.458010 | Rank: 146
+  147. Thamie Pahoman                           | Jarak: 0.458010 | Rank: 147
+  148. 24 Degress                               | Jarak: 0.458010 | Rank: 148
+  149. Theree Nine Coffee & Eatery              | Jarak: 0.458010 | Rank: 149
+  150. 9.1 Coffee                               | Jarak: 0.458010 | Rank: 150
+  151. Tomoro Coffee Pahoman                    | Jarak: 0.458010 | Rank: 151
+  152. Adiksi Coffee Purnawirawan               | Jarak: 0.458010 | Rank: 152
+  153. Vezco Gedong Air                         | Jarak: 0.458010 | Rank: 153
+  154. The Pearl                                | Jarak: 0.458010 | Rank: 154
+  155. Kopi Janji Jiwa Imam Bonjol              | Jarak: 0.458010 | Rank: 155
+  156. Manca Eatery                             | Jarak: 0.458010 | Rank: 156
+  157. Kopi Kenangan Kedaton                    | Jarak: 0.458010 | Rank: 157
+  158. Kiyo Time Pramuka                        | Jarak: 0.458010 | Rank: 158
+  159. Kiyo Libare Korpri & 51 Carwash          | Jarak: 0.458010 | Rank: 159
+  160. Kiyo Libare                              | Jarak: 0.458010 | Rank: 160
+  161. Kopi Koccok                              | Jarak: 0.458010 | Rank: 161
+  162. Kopi Oey Lampung                         | Jarak: 0.458010 | Rank: 162
+  163. Kopi Sheo X Donat Eo Antasari            | Jarak: 0.458010 | Rank: 163
+  164. Kafe Santurasi                           | Jarak: 0.458010 | Rank: 164
+  165. Janji Jiwa & Jiwa Toast Sukarame         | Jarak: 0.458010 | Rank: 165
+  166. Cabrio Premier Coffee                    | Jarak: 0.458010 | Rank: 166
+  167. Flipflop Coffee                          | Jarak: 0.458010 | Rank: 167
+  168. Nnoko Café                              | Jarak: 0.458010 | Rank: 168
+  169. Kopi Sheo X Dinat Eo Kemiling            | Jarak: 0.458010 | Rank: 169
+  170. Els Coffee Raden Inten Ii                | Jarak: 0.458010 | Rank: 170
+  171. Rumah Kawan 3                            | Jarak: 0.458010 | Rank: 171
+  172. Cafe Kolo                                | Jarak: 0.458010 | Rank: 172
+  173. Cafe Kopi Legend                         | Jarak: 0.458010 | Rank: 173
+  174. Notiz Hut                                | Jarak: 0.458010 | Rank: 174
+  175. Day One Coffee                           | Jarak: 0.458010 | Rank: 175
+  176. Dahareun                                 | Jarak: 0.458010 | Rank: 176
+  177. Panacea Coffee                           | Jarak: 0.458010 | Rank: 177
+  178. D’jaya House                           | Jarak: 0.458010 | Rank: 178
+  179. Els Coffee Mbk                           | Jarak: 0.458010 | Rank: 179
+  Total: 179 kafe
+
+CLUSTER 2:
+   1. Kopitiam Uncle                           | Jarak: 0.082479 | Rank: 1
+   2. Ice & Coffee                             | Jarak: 0.082479 | Rank: 2
+   3. Rumah Kawan                              | Jarak: 0.082479 | Rank: 3
+   4. Rumah Kawan 2                            | Jarak: 0.082479 | Rank: 4
+   5. Yaba House                               | Jarak: 0.082479 | Rank: 5
+   6. Rumah Kawan 4                            | Jarak: 0.082479 | Rank: 6
+   7. Kopi Ketje Unila                         | Jarak: 0.494872 | Rank: 7
+  Total: 7 kafe
+
+CLUSTER 3:
+   1. Jenggala Coffee And Brew                 | Jarak: 0.072169 | Rank: 1
+   2. Fore Coffee Mbk                          | Jarak: 0.072169 | Rank: 2
+   3. Starbucks Mbk                            | Jarak: 0.072169 | Rank: 3
+   4. One More Coffee                          | Jarak: 0.072169 | Rank: 4
+   5. Small Block Coffee                       | Jarak: 0.072169 | Rank: 5
+   6. Kopi Ketje Mall Kartini                  | Jarak: 0.072169 | Rank: 6
+   7. Kopi Tempat Ketiga Sukarame              | Jarak: 0.072169 | Rank: 7
+   8. Kopi Tempat Ketiga                       | Jarak: 0.505181 | Rank: 8
+  Total: 8 kafe
+
+=====================================================
+END OF LOG
+=====================================================
+
