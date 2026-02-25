@@ -8,6 +8,22 @@ if (!isset($_SESSION['sesi_id'])) {
     return;
 }
 
+$queryBobot = mysqli_query($koneksi, "
+    SELECT 
+        bobot_rasa,
+        bobot_pelayanan,
+        bobot_fasilitas,
+        bobot_suasana,
+        bobot_harga,
+        bobot_rating,
+        tgl_upload
+    FROM hasil_wsm
+    ORDER BY id_wsm DESC
+    LIMIT 1
+");
+
+$dataBobot = mysqli_fetch_assoc($queryBobot);
+
 ?>
 
 <!-- Custom Loading Style -->
@@ -303,168 +319,72 @@ if (!isset($_SESSION['sesi_id'])) {
             </ul>
         </div>
 
+
+
+        <!-- ================= CARD 1: BOBOT KRITERIA WSM AKTIF ================= -->
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-sliders"></i>
+                    Bobot Kriteria (WSM Aktif)
+                </h5>
+            </div>
+
+            <div class="card-body">
+
+                <?php if ($dataBobot) : ?>
+
+                    <div class="alert alert-info mt-3">
+                        Bobot terakhir dihitung pada:
+                        <strong><?= date('d-m-Y H:i', strtotime($dataBobot['tgl_upload'])) ?></strong>
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        $fields = [
+                            'Rasa Kopi' => 'bobot_rasa',
+                            'Pelayanan' => 'bobot_pelayanan',
+                            'Fasilitas' => 'bobot_fasilitas',
+                            'Suasana' => 'bobot_suasana',
+                            'Harga' => 'bobot_harga',
+                            'Rating' => 'bobot_rating'
+                        ];
+
+                        foreach ($fields as $label => $field) :
+                        ?>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label class="fw-bold"><?= $label ?></label>
+                                    <input type="text"
+                                        class="form-control"
+                                        value="<?= $dataBobot[$field] ?>"
+                                        readonly>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                <?php else : ?>
+
+                    <div class="alert alert-danger text-center">
+                        Bobot WSM belum tersedia.
+                    </div>
+
+                <?php endif; ?>
+            </div>
+            <!-- Tombol Upload WSM -->
+            <div class=" card-footer d-flex justify-content-between">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalHitungWsm">
+                    <i class="bi bi-plus-circle"></i> Hitung Bobot WSM Baru
+                </button>
+            </div>
+            </form>
+        </div>
         <form action="../functions/function_clustering.php"
             method="post"
             enctype="multipart/form-data"
             id="formClustering"
             data-parsley-validate>
-
-            <!-- ================= CARD 1: BOBOT KRITERIA WSM ================= -->
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="card-title mb-0">
-                        <i class="bi bi-sliders"></i>
-                        Bobot Kriteria (Weighted Sum Model)
-                    </h5>
-                </div>
-
-                <div class="card-body">
-                    <div class="alert alert-info mt-3">
-                        <i class="bi bi-lightbulb-fill"></i>
-                        <strong>Catatan:</strong> Total bobot harus = 100%. Bobot menentukan tingkat kepentingan setiap kriteria.
-                    </div>
-
-                    <div class="row">
-                        <!-- Rasa Kopi -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label fw-bold">
-                                    <i class="bi bi-cup-hot-fill text-danger"></i> Rasa Kopi
-                                </label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        name="bobot_rasa"
-                                        id="bobot_rasa"
-                                        class="form-control bobot-input"
-                                        value="30"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pelayanan -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label fw-bold">
-                                    <i class="bi bi-people-fill text-success"></i> Pelayanan
-                                </label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        name="bobot_pelayanan"
-                                        id="bobot_pelayanan"
-                                        class="form-control bobot-input"
-                                        value="20"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fasilitas -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label fw-bold">
-                                    <i class="bi bi-wifi text-primary"></i> Fasilitas
-                                </label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        name="bobot_fasilitas"
-                                        id="bobot_fasilitas"
-                                        class="form-control bobot-input"
-                                        value="15"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Suasana -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label fw-bold">
-                                    <i class="bi bi-stars text-warning"></i> Suasana
-                                </label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        name="bobot_suasana"
-                                        id="bobot_suasana"
-                                        class="form-control bobot-input"
-                                        value="15"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Harga -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label fw-bold">
-                                    <i class="bi bi-cash-coin text-info"></i> Harga
-                                </label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        name="bobot_harga"
-                                        id="bobot_harga"
-                                        class="form-control bobot-input"
-                                        value="10"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Rating -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label fw-bold">
-                                    <i class="bi bi-star-fill text-warning"></i> Rating
-                                </label>
-                                <div class="input-group">
-                                    <input type="number"
-                                        name="bobot_rating"
-                                        id="bobot_rating"
-                                        class="form-control bobot-input"
-                                        value="10"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total Bobot -->
-                    <div class="alert alert-secondary d-flex justify-content-between align-items-center mt-3">
-                        <div>
-                            <span class="fw-bold">Total Bobot:</span>
-                            <span id="totalBobot" class="badge bg-success ms-2 fs-5">100%</span>
-                        </div>
-                        <button type="button" id="btnAutoAdjust" class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-magic"></i> Auto Sesuaikan
-                        </button>
-                    </div>
-                </div>
-            </div>
-
             <!-- ================= CARD 2: UPLOAD DATASET ================= -->
             <div class="card">
                 <div class="card-header bg-success text-white">
@@ -477,7 +397,7 @@ if (!isset($_SESSION['sesi_id'])) {
                 <div class="card-body">
                     <div class="alert alert-warning mt-3">
                         <i class="bi bi-exclamation-triangle-fill"></i>
-                        <strong>Format CSV harus sesuai template:</strong>
+                        <strong>Format CSV harus sesuai format:</strong>
                         <br>
                         <code class="mt-2 d-block">Nama Kafe;Skor_Rasa;Skor_Pelayanan;Skor_Fasilitas;Skor_Suasana;Skor_Harga;Skor_Rating</code>
                     </div>
@@ -490,27 +410,79 @@ if (!isset($_SESSION['sesi_id'])) {
                             name="dataset_csv"
                             data-max-file-size="10MB"
                             class="filepond-csv"
-                            data-parsley-required="true"">
+                            data-parsley-required="true">
                     </div>
                 </div>
 
                 <div class=" card-footer d-flex justify-content-between">
-                        <a href="index" class="btn btn-secondary">
-                            <i class="bi bi-arrow-left"></i> Kembali
-                        </a>
-                        <button type="submit"
-                            name="btn_mulai_clustering"
-                            id="btnSubmit"
-                            class="btn btn-success btn-lg px-5">
-                            <i class="bi bi-diagram-3-fill"></i>
-                            Mulai Clustering
-                        </button>
-                    </div>
+                    <a href="index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Kembali
+                    </a>
+                    <button type="submit"
+                        name="btn_mulai_clustering"
+                        id="btnSubmit"
+                        class="btn btn-success btn-md px-5">
+                        <i class="bi bi-diagram-3-fill"></i>
+                        Mulai Clustering
+                    </button>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+<div class="modal fade" id="modalHitungWsm" data-bs-backdrop="false" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <form method="post" action="../functions/function_wsm.php"
+            enctype="multipart/form-data" class="modal-content" data-parsley-validate>
+
+            <div class="modal-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                    Upload Dataset CSV
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="alert alert-warning mt-3">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <strong>Format CSV WSM harus sesuai format:</strong>
+                    <br>
+                    <code class="mt-2 d-block">Skor_Rasa;Skor_Pelayanan;Skor_Fasilitas;Skor_Suasana;Skor_Harga;Skor_Rating</code>
                 </div>
 
-        </form>
+                <div class="form-group">
+                    <label class="form-label fw-bold">
+                        <i class="bi bi-upload"></i> Pilih File Dataset (CSV)
+                    </label>
+                    <input type="file"
+                        name="wsm_csv"
+                        data-max-file-size="10MB"
+                        class="basic-filepond"
+                        data-parsley-required="true">
+                    <p>
+                    <div class="text-bold"><code>* Abaikan jika tidak ingin mengubah bobot yang sudah ada</code></div>
+                    </p>
+                </div>
+            </div>
 
-    </section>
+            <div class="modal-footer">
+                <button type="submit"
+                    name="btn_mulai_wsm"
+                    id="btnSubmit"
+                    class="btn btn-info btn-md px-5">
+                    <i class="bi bi-diagram-3-fill"></i>
+                    Hitung Bobot WSM Baru
+                </button>
+                <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Batal
+                </button>
+            </div>
+
+        </form>
+    </div>
 </div>
 
 <script>

@@ -43,63 +43,33 @@ if (!isset($_POST['btn_mulai_clustering'])) {
 }
 
 // =====================================================
-// AMBIL BOBOT WSM DARI DATABASE (hasil_wsm)
+// VALIDASI & AMBIL BOBOT WSM DARI FORM
 // =====================================================
 
-// Ambil bobot terbaru
-$query_bobot = mysqli_query($koneksi, "
-    SELECT bobot_rasa, bobot_pelayanan, bobot_fasilitas,
-           bobot_suasana, bobot_harga, bobot_rating
-    FROM hasil_wsm
-    ORDER BY id_wsm DESC
-    LIMIT 1
-");
+$bobot_rasa      = isset($_POST['bobot_rasa']) ? (float)$_POST['bobot_rasa'] : 0;
+$bobot_pelayanan = isset($_POST['bobot_pelayanan']) ? (float)$_POST['bobot_pelayanan'] : 0;
+$bobot_fasilitas = isset($_POST['bobot_fasilitas']) ? (float)$_POST['bobot_fasilitas'] : 0;
+$bobot_suasana   = isset($_POST['bobot_suasana']) ? (float)$_POST['bobot_suasana'] : 0;
+$bobot_harga     = isset($_POST['bobot_harga']) ? (float)$_POST['bobot_harga'] : 0;
+$bobot_rating    = isset($_POST['bobot_rating']) ? (float)$_POST['bobot_rating'] : 0;
 
-if (!$query_bobot || mysqli_num_rows($query_bobot) == 0) {
-    redirect_with_message(
-        'Mulai Clustering',
-        'error',
-        'clustering',
-        'bobot_not_found',
-        'Bobot WSM belum tersedia. Silakan jalankan perhitungan WSM terlebih dahulu.'
-    );
-}
-
-$data_bobot = mysqli_fetch_assoc($query_bobot);
-
-// Ambil bobot dari database
-$bobot_rasa      = (float)$data_bobot['bobot_rasa'];
-$bobot_pelayanan = (float)$data_bobot['bobot_pelayanan'];
-$bobot_fasilitas = (float)$data_bobot['bobot_fasilitas'];
-$bobot_suasana   = (float)$data_bobot['bobot_suasana'];
-$bobot_harga     = (float)$data_bobot['bobot_harga'];
-$bobot_rating    = (float)$data_bobot['bobot_rating'];
-
-// =====================================================
-// VALIDASI TOTAL BOBOT (HARUS 100)
-// =====================================================
-
+// Hitung total bobot (harus = 100%)
 $total_bobot = $bobot_rasa + $bobot_pelayanan + $bobot_fasilitas +
     $bobot_suasana + $bobot_harga + $bobot_rating;
 
-// console . log($total_bobot - 100);
-
-if (abs($total_bobot - 1) > 0.0001) {
-    redirect_with_message(
-        'Mulai Clustering',
-        'error',
-        'clustering',
-        'invalid_weight_total',
-        'Total bobot di tabel hasil_wsm tidak 100%'
-    );
+// Validasi total bobot
+if ($total_bobot != 100) {
+    redirect_with_message('Mulai Clustering', 'error', 'clustering', 'invalid_weight_total', 'Total bobot harus 100%');
 }
 
-$w_rasa      = $bobot_rasa;
-$w_pelayanan = $bobot_pelayanan;
-$w_fasilitas = $bobot_fasilitas;
-$w_suasana   = $bobot_suasana;
-$w_harga     = $bobot_harga;
-$w_rating    = $bobot_rating;
+// Konversi bobot ke desimal (0-1) untuk perhitungan WSM
+// Rumus WSM: Vi = Σ(Wj × Xij)
+$w_rasa      = $bobot_rasa / 100;
+$w_pelayanan = $bobot_pelayanan / 100;
+$w_fasilitas = $bobot_fasilitas / 100;
+$w_suasana   = $bobot_suasana / 100;
+$w_harga     = $bobot_harga / 100;
+$w_rating    = $bobot_rating / 100;
 
 // =====================================================
 // VALIDASI FILE UPLOAD
@@ -490,72 +460,105 @@ $idClusterBaru = mysqli_insert_id($koneksi);
 // =====================================================
 
 // =====================================================
-// TAHAP 6: K-MEANS 1 DIMENSI (BERDASARKAN NILAI_WSM)
+// TAHAP 6: JALANKAN K-MEANS CLUSTERING (PHP NATIVE)
 // =====================================================
 
-// Ambil rata-rata nilai_wsm per kafe
+// Agregasi data per kafe (rata-rata jika ada duplikat)
 $df_group = [];
-
-$query_avg = mysqli_query($koneksi, "
-    SELECT id_kafe, ROUND(AVG(nilai_wsm), 4) as avg_wsm
-    FROM hasil_kuisioner
-    GROUP BY id_kafe
-");
-
-while ($row = mysqli_fetch_assoc($query_avg)) {
+foreach ($data_kafe_for_clustering as $nama => $values) {
     $df_group[] = [
-        'id_kafe' => $row['id_kafe'],
-        'nilai_wsm' => (float)$row['avg_wsm']
+        'nama_kafe' => $nama,
+        'id_kafe' => $values['id_kafe'],
+        'rasa' => array_sum($values['rasa']) / count($values['rasa']),
+        'pelayanan' => array_sum($values['pelayanan']) / count($values['pelayanan']),
+        'fasilitas' => array_sum($values['fasilitas']) / count($values['fasilitas']),
+        'suasana' => array_sum($values['suasana']) / count($values['suasana']),
+        'harga' => array_sum($values['harga']) / count($values['harga'])
     ];
 }
 
-$k = 3;
-
+// Validasi jumlah data
+$k = 3; // Jumlah cluster
 if (count($df_group) < $k) {
-    redirect_with_message(
-        'Mulai Clustering',
-        'error',
-        'clustering',
-        'kmeans_error',
-        'Jumlah kafe kurang dari jumlah cluster'
-    );
+    redirect_with_message('Mulai Clustering', 'error', 'clustering', 'kmeans_error', 'Jumlah kafe kurang dari jumlah cluster (minimum 3 kafe)');
 }
 
 // ===============================
-// NORMALISASI MIN-MAX (1 DIMENSI)
+// NORMALISASI MIN-MAX
+// ===============================
+// Rumus: X_norm = (X - X_min) / (X_max - X_min)
 // ===============================
 
-$values = array_column($df_group, 'nilai_wsm');
+$fitur = ['rasa', 'pelayanan', 'fasilitas', 'suasana', 'harga'];
+$min_max = [];
 
-$min = min($values);
-$max = max($values);
+// Cari min & max per fitur
+foreach ($fitur as $f) {
+    $values = array_column($df_group, $f);
+    $min_max[$f] = [
+        'min' => min($values),
+        'max' => max($values)
+    ];
+}
 
+// Normalisasi data
 $X = [];
-
 foreach ($df_group as $i => $row) {
+    $X[$i] = [];
+    foreach ($fitur as $f) {
+        $min = $min_max[$f]['min'];
+        $max = $min_max[$f]['max'];
 
-    if ($max - $min == 0) {
-        $X[$i] = [0];
-    } else {
-        $X[$i] = [
-            ($row['nilai_wsm'] - $min) / ($max - $min)
-        ];
+        // Min-Max Scaling
+        if ($max - $min == 0) {
+            $X[$i][] = 0; // Semua nilai sama
+        } else {
+            $X[$i][] = ($row[$f] - $min) / ($max - $min);
+        }
     }
 }
 
 // ===============================
-// INISIALISASI CENTROID RANDOM
+// K-MEANS++ INITIALIZATION
+// ===============================
+// Pilih centroid awal dengan algoritma K-Means++
 // ===============================
 
 $centroids = [];
+
+// Pilih centroid pertama secara random
 $centroids[0] = $X[array_rand($X)];
 
+// Pilih centroid berikutnya
 for ($c = 1; $c < $k; $c++) {
-    $centroids[$c] = $X[array_rand($X)];
+    $distances = [];
+
+    // Hitung jarak setiap titik ke centroid terdekat
+    foreach ($X as $i => $point) {
+        $min_dist = PHP_FLOAT_MAX;
+
+        foreach ($centroids as $centroid) {
+            $dist = 0;
+            for ($j = 0; $j < count($point); $j++) {
+                $dist += pow($point[$j] - $centroid[$j], 2);
+            }
+            $dist = sqrt($dist);
+
+            if ($dist < $min_dist) {
+                $min_dist = $dist;
+            }
+        }
+
+        $distances[$i] = $min_dist;
+    }
+
+    // Pilih titik dengan jarak terjauh sebagai centroid baru
+    $max_index = array_search(max($distances), $distances);
+    $centroids[$c] = $X[$max_index];
 }
 
 // ===============================
-// ITERASI K-MEANS
+// K-MEANS ITERASI
 // ===============================
 
 $labels = [];
@@ -563,17 +566,18 @@ $max_iter = 100;
 
 for ($iter = 0; $iter < $max_iter; $iter++) {
 
+    // Assign data ke cluster terdekat
     $new_labels = [];
-
     foreach ($X as $i => $point) {
-
         $min_dist = PHP_FLOAT_MAX;
         $cluster = 0;
 
         foreach ($centroids as $c => $centroid) {
-
-            // Euclidean Distance 1 dimensi
-            $dist = abs($point[0] - $centroid[0]);
+            $dist = 0;
+            for ($j = 0; $j < count($point); $j++) {
+                $dist += pow($point[$j] - $centroid[$j], 2);
+            }
+            $dist = sqrt($dist);
 
             if ($dist < $min_dist) {
                 $min_dist = $dist;
@@ -584,31 +588,37 @@ for ($iter = 0; $iter < $max_iter; $iter++) {
         $new_labels[$i] = $cluster;
     }
 
+    // Cek konvergensi (jika label tidak berubah, stop)
     if ($labels === $new_labels) {
         break;
     }
 
     $labels = $new_labels;
 
-    // Update centroid
+    // Update centroid (rata-rata semua data di cluster)
     $new_centroids = [];
-
     for ($c = 0; $c < $k; $c++) {
-
         $cluster_points = [];
 
         foreach ($labels as $i => $label) {
             if ($label === $c) {
-                $cluster_points[] = $X[$i][0];
+                $cluster_points[] = $X[$i];
             }
         }
 
         if (empty($cluster_points)) {
+            // Cluster kosong, centroid tidak berubah
             $new_centroids[$c] = $centroids[$c];
         } else {
-            $new_centroids[$c] = [
-                array_sum($cluster_points) / count($cluster_points)
-            ];
+            // Hitung rata-rata per dimensi
+            $new_centroids[$c] = [];
+            for ($j = 0; $j < count($cluster_points[0]); $j++) {
+                $sum = 0;
+                foreach ($cluster_points as $point) {
+                    $sum += $point[$j];
+                }
+                $new_centroids[$c][] = $sum / count($cluster_points);
+            }
         }
     }
 
@@ -616,28 +626,45 @@ for ($iter = 0; $iter < $max_iter; $iter++) {
 }
 
 // ===============================
-// HITUNG JARAK FINAL
+// HITUNG JARAK KE CENTROID
 // ===============================
 
 $jarak = [];
-
 foreach ($X as $i => $point) {
     $centroid = $centroids[$labels[$i]];
-    $jarak[$i] = abs($point[0] - $centroid[0]);
+    $dist = 0;
+    for ($j = 0; $j < count($point); $j++) {
+        $dist += pow($point[$j] - $centroid[$j], 2);
+    }
+    $jarak[$i] = sqrt($dist);
 }
 
-// Buat array untuk ranking berdasarkan nilai_wsm tertinggi
-$ranking = $df_group;
+// ===============================
+// RANKING PER CLUSTER
+// ===============================
+// Ranking berdasarkan jarak (terdekat = rank 1)
+// ===============================
 
-// Urutkan descending
-usort($ranking, function ($a, $b) {
-    return $b['nilai_wsm'] <=> $a['nilai_wsm'];
-});
+$cluster_data = [];
+foreach ($labels as $i => $cluster) {
+    $cluster_data[$cluster][] = [
+        'index' => $i,
+        'jarak' => $jarak[$i]
+    ];
+}
 
-// Buat mapping id_kafe => peringkat
-$peringkat_map = [];
-foreach ($ranking as $index => $row) {
-    $peringkat_map[$row['id_kafe']] = $index + 1;
+$peringkat = [];
+foreach ($cluster_data as $cluster => $items) {
+    // Sort by jarak (ascending = terdekat dulu)
+    usort($items, function ($a, $b) {
+        return $a['jarak'] <=> $b['jarak'];
+    });
+
+    // Assign ranking
+    $rank = 1;
+    foreach ($items as $item) {
+        $peringkat[$item['index']] = $rank++;
+    }
 }
 
 // =====================================================
@@ -662,18 +689,77 @@ foreach ($df_group as $i => $row) {
     mysqli_query(
         $koneksi,
         "INSERT INTO hasil_clustering
-    (id_cluster, id_kafe, cluster, jarak_centroid, peringkat_cluster, rating_akhir)
-    VALUES
-    (
-        $idClusterBaru,
-        $id_kafe,
-        " . ($labels[$i] + 1) . ",
-        " . round($jarak[$i], 6) . ",
-        {$peringkat_map[$id_kafe]},
-        $rating_akhir
-    )"
+        (id_cluster, id_kafe, cluster, jarak_centroid, peringkat_cluster, rating_akhir)
+        VALUES
+        (
+            $idClusterBaru,
+            $id_kafe,
+            " . ($labels[$i] + 1) . ",
+            " . round($jarak[$i], 6) . ",
+            {$peringkat[$i]},
+            $rating_akhir
+        )"
     );
 }
+
+// =====================================================
+// TAHAP 8: LOG HASIL CLUSTERING KE FILE TXT
+// =====================================================
+
+$log_file_path = $uploadDir . 'log_clustering.txt';
+$log_content = "";
+
+$log_content .= "=====================================================\n";
+$log_content .= "LOG CLUSTERING - SIP KAFE BALAM\n";
+$log_content .= "=====================================================\n";
+$log_content .= "Tanggal: " . date('Y-m-d H:i:s') . "\n";
+$log_content .= "File: $namaFileClustering\n";
+$log_content .= "-----------------------------------------------------\n\n";
+
+$log_content .= "PARAMETER WSM:\n";
+$log_content .= "- Bobot Rasa Kopi: $bobot_rasa%\n";
+$log_content .= "- Bobot Pelayanan: $bobot_pelayanan%\n";
+$log_content .= "- Bobot Fasilitas: $bobot_fasilitas%\n";
+$log_content .= "- Bobot Suasana: $bobot_suasana%\n";
+$log_content .= "- Bobot Harga: $bobot_harga%\n";
+$log_content .= "- Bobot Rating: $bobot_rating%\n";
+$log_content .= "Total Bobot: 100%\n\n";
+
+$log_content .= "STATISTIK DATA:\n";
+$log_content .= "- Total Baris Diproses: " . ($jumlahData + $skipped_rows) . "\n";
+$log_content .= "- Data Valid: $jumlahData kafe\n";
+$log_content .= "- Data Di-skip (corrupt/invalid): $skipped_rows\n";
+$log_content .= "- Jumlah Cluster: $k\n";
+$log_content .= "- Iterasi K-Means: " . ($iter + 1) . "\n\n";
+
+$log_content .= "HASIL CLUSTERING:\n";
+$log_content .= "-----------------------------------------------------\n";
+
+// Kelompokkan per cluster
+for ($c = 1; $c <= $k; $c++) {
+    $log_content .= "\nCLUSTER $c:\n";
+    $count = 0;
+    foreach ($df_group as $i => $row) {
+        if (($labels[$i] + 1) == $c) {
+            $count++;
+            $log_content .= sprintf(
+                "  %2d. %-40s | Jarak: %.6f | Rank: %d\n",
+                $count,
+                $row['nama_kafe'],
+                $jarak[$i],
+                $peringkat[$i]
+            );
+        }
+    }
+    $log_content .= "  Total: $count kafe\n";
+}
+
+$log_content .= "\n=====================================================\n";
+$log_content .= "END OF LOG\n";
+$log_content .= "=====================================================\n\n";
+
+// Tulis ke file (append mode)
+file_put_contents($log_file_path, $log_content, FILE_APPEND);
 
 // =====================================================
 // TAHAP 9: LOG AKTIVITAS DATABASE (OPSIONAL)
@@ -689,7 +775,7 @@ if (isset($_SESSION['sesi_id'])) {
          VALUES (
              {$_SESSION['sesi_id']},
              '" . mysqli_real_escape_string($koneksi, $log_message) . "',
-             NOW()  
+             NOW()
          )"
     );
 }
