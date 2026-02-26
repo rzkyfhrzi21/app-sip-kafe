@@ -40,7 +40,7 @@ if (!$kafe) {
 }
 
 $clusterColor = [1 => 'success', 2 => 'warning', 3 => 'danger'];
-$clusterLabel = [1 => 'Kualitas Terbaik', 2 => 'Kualitas Standar', 3 => 'Kualitas Rendah'];
+$clusterLabel = [1 => 'Kualitas Tinggi', 2 => 'Kualitas Sedang', 3 => 'Kualitas Rendah'];
 
 $foto = !empty($kafe['foto_kafe']) ? $kafe['foto_kafe'] : 'default.jpg';
 $foto_url = "dashboard/assets/foto_kafe/" . htmlspecialchars($foto);
