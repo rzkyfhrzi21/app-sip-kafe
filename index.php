@@ -60,7 +60,6 @@ $q = mysqli_query($koneksi, "
     WHERE hc.id_cluster = '$idCluster' $filterSQL
     GROUP BY hc.id_hasil
     ORDER BY $orderBy
-    LIMIT 12
 ");
 
 $clusterColor = [1 => 'success', 2 => 'warning', 3 => 'danger'];
