@@ -52,7 +52,7 @@ $q = mysqli_query($koneksi, $sql);
 $total_results = mysqli_num_rows($q);
 
 $clusterColor = [1 => 'success', 2 => 'warning', 3 => 'danger'];
-$clusterLabel = [1 => 'Kualitas Tinggi', 2 => 'Kualitas Sedang', 3 => 'Kualitas Rendah'];
+$clusterLabel = [1 => 'Kualitas Terbaik', 2 => 'Kualitas Standar', 3 => 'Kualitas Rendah'];
 ?>
 <!DOCTYPE html>
 <html lang="id">

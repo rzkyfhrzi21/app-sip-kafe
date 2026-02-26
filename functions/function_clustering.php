@@ -641,6 +641,43 @@ foreach ($ranking as $index => $row) {
 }
 
 // =====================================================
+// RE-ORDER CLUSTER BERDASARKAN RATA-RATA WSM
+// Cluster dengan WSM terbesar jadi Cluster 1
+// =====================================================
+
+// Hitung rata-rata nilai_wsm tiap cluster
+$cluster_avg = [];
+
+for ($c = 0; $c < $k; $c++) {
+
+    $cluster_values = [];
+
+    foreach ($labels as $i => $label) {
+        if ($label === $c) {
+            $cluster_values[] = $df_group[$i]['nilai_wsm'];
+        }
+    }
+
+    if (!empty($cluster_values)) {
+        $cluster_avg[$c] = array_sum($cluster_values) / count($cluster_values);
+    } else {
+        $cluster_avg[$c] = 0;
+    }
+}
+
+// Urutkan cluster berdasarkan rata-rata WSM (DESC)
+arsort($cluster_avg);
+
+// Buat mapping cluster lama → cluster baru
+$cluster_mapping = [];
+$new_cluster_number = 1;
+
+foreach ($cluster_avg as $old_cluster => $avg) {
+    $cluster_mapping[$old_cluster] = $new_cluster_number;
+    $new_cluster_number++;
+}
+
+// =====================================================
 // TAHAP 7: SIMPAN HASIL CLUSTERING KE DATABASE
 // =====================================================
 
@@ -667,7 +704,7 @@ foreach ($df_group as $i => $row) {
     (
         $idClusterBaru,
         $id_kafe,
-        " . ($labels[$i] + 1) . ",
+        {$cluster_mapping[$labels[$i]]},
         " . round($jarak[$i], 6) . ",
         {$peringkat_map[$id_kafe]},
         $rating_akhir
